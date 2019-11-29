@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/stylesheets/reset.css">
+  <link rel="stylesheet" href="dist/stylesheets/style.css">
+  <script src="https://kit.fontawesome.com/65ac835d05.js" crossorigin="anonymous"></script>
+  <title>My Portfolio</title>
+</head>
+
+<body>
+
+  <!-- Scroll to top button -->
+  <button onclick="topFunction()" id="topBtn" title="Go to top"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x circle-fa"></i><i class="fas fa-angle-up fa-stack-1x fa-inverse"></i></span></button>
+  <!-- Top Header -->
+  <nav>
+      <div class="toggle"><i class="fas fa-bars menu"></i></div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li id="resume-link"><a href="resume.html">Resume</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  <header id="main-header">
+
+    <div class="main-header-text">
+      <h1>Ulla Taponen</h1>
+      <h2>Front End Design & Development</h2>
+    
+  </header>
+
+  <!-- About Me -->
+  <main>
+    <section id="about">
+      <h3>About Me</h3>
+      <div class="container">
+        <img src="images/Ulla.jpg" alt="Image of Ulla Taponen">
+        <p>I'm an aspiring programming professional with an academic grade average of 4.6 (out of 5), 
+          looking to utilize and further develop my skills in front-end development. I have a strong passion for usability and functionality. 
+          I'm highly enthusiastic and self-motivated,and driven to make an impact to the digital customer experience. 
+          My multidisciplinary background provides me with versatile skills and problem-solving ability.</p>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="portfolio-header">
+        <h3>My Work</h3>
+      </div>
+      <h4>Here you can find my most recent projects.</h4>
+      <div class="grid-wrapper">
+        <div class="projects-grid">
+          <a href="https://ullataponen.github.io/TinCat-Start/" target="_blank">
+            <div class="project-card">
+                <div class="overlay">
+                  <h5>Tincat</h5>
+                  <p>A Bootstrap landing page</p>
+                </div>
+                <img src="images/tincat.jpg">
+              </div>
+          </a>
+          <a href="https://ullataponen.github.io/Voyage11-prework/" target="_blank">
+            <div class="project-card">
+                <div class="overlay">
+                  <h5>Chingu Challenge</h5>
+                  <p>Pure HTML, CSS, JS template</p>
+                </div>
+                <img src="images/chingu.jpg">
+              </div>
+          </a>
+          <a href="https://ullataponen.github.io/MySite/" target="_blank">
+            <div class="project-card">
+              <div class="overlay">
+                <h5>My Site</h5>
+                <p>Basic HTML and CSS site</p>
+              </div>
+              <img src="images/my-site.jpg">
+            </div>
+           </a>
+           <a href="https://ullataponen.github.io/Dicee_Challenge/" target="_blank">
+            <div class="project-card">  
+              <div class="overlay">
+                <h5>Dicee Challenge</h5>
+                <p>A simple JavaScript game</p>
+              </div>
+              <img src="images/dicee.jpg">    
+            </div>
+          </a>
+          <div class="project-card">
+            <div class="overlay">
+              <h5>Dine Out</h5>
+            </div>
+            <img src="https://source.unsplash.com/300x300/?food">
+          </div>
+          <div class="project-card">
+            <div class="overlay">
+              <h5>Trazier</h5>
+            </div>
+            <img src="https://source.unsplash.com/300x300/?wood">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="testimonial-header">
+        <h3>Testimonials</h3>
+      </div>
+
+      <div class="testimonial-carousel">
+        <div class="mySlides fade">
+          <img class="testimonial-img" src="images/testimonial_1 200w.jpg" alt="Image of testifier #1">
+          <div class="text">
+              <h2>Ulla Taponen is the best employee we wished we had!</h2>
+              <p><strong>John, Google</strong></p>
+          </div>        
+        </div>
+        <div class="mySlides fade">
+          <img class="testimonial-img" src="images/testimonial_2 200w.jpg" alt="Image of testifier #2">
+          <div class="text">
+              <h2>With Ulla's help my company was able to bring in 50% more revenue!</h2>
+              <p><strong>Lisa, Microsoft</strong></p>
+          </div>
+        </div>
+        <div class="mySlides fade">
+          <img class="testimonial-img" src="images/testimonial_3 200w.jpg" alt="Image of testifier #3">
+          <div class="text">
+              <h2>The most professional individual I have had the pleasure to work with.</h2>
+              <p><strong>Jack, Facebook</strong></p>
+          </div>
+        </div>
+        <a class="prev" onclick="plusSides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      <div class="carousel-dots" style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="contact-header">
+        <h3>Contact</h3>
+      </div>
+      <div class="contact-sub-header">
+        <h3>Get In Touch</h3>
+        <p><em>I'd love to hear from you!</em></p>
+      </div>
+      <div class="contact-info">
+        <img src="images/mailbox 500w.jpg" alt="Image of mailboxes">
+        <div class="contact-text">
+          <p><i class="fas fa-map-marker-alt"></i>Location: Frankfurt, Germany</p>
+          <p><i class="fas fa-phone-alt"></i>Phone: 123 456 789</p>
+          <p><i class="fas fa-envelope"></i>Email: ulla.taponen@myy.haaga-helia.fi</p>
+          <!-- N.B. Form is set up with formspree, requires a working email  and a test contact message to activate. See https://github.com/formspree/formspree for mor details -->
+          <form id="contactform" action="https://formspree.io/ulla.taponen@myy.haaga-helia.fi" method="post">
+            <fieldset>
+              <legend>Leave me a message!</legend>
+              <label for="name">Your name:</label><br>
+              <input type="text" name="name" placeholder="e.g. John Doe" required>
+              <label for="_replyto">Your email:</label><br>
+              <input type="text" name="_replyto" placeholder="e.g. john@mail.com">
+              <label for="message">Your message:</label><br>
+              <textarea name="message" required></textarea>
+              <input type="hidden" name="_subject" value="Website contact">
+              <input type="text" name="_gotcha" style="display:none">
+              <button type="submit" name="button"><i class="fas fa-paper-plane"></i> Send</button>
+            </fieldset>
+          </form>
+          <!-- Optionally include the form as an embedded Google Form:
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfL7W22gUL0ZUeWsY40s33dBpxwl8DZJd0mSZqeorNCYS1dRQ/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Ladataan…</iframe> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="some">
+      <a href="https://www.linkedin.com/in/ulla-taponen/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+      <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="https://github.com/ullataponen" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2019 Ulla Taponen</p>
+    </div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="./src/index.js"></script>
+</body>
+
+</html>

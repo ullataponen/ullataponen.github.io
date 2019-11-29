@@ -1,0 +1,546 @@
+// Universals
+
+$old-lavender: #7e6c6c;
+$light-coral: #f87575;
+$melon: #ffa9a3;
+$light-melon: #ffd5d2;
+$uranian-blue: #b9e6ff;
+$cornflower-blue: #5c95ff;
+$dim-gray: #717171;
+
+@mixin parallax-header($imgSrc, $imgSrcBig) {
+	background-image: $imgSrc;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	text-shadow: 2px 2px 2px #333, -2px -2px 2px #333;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 40px;
+
+	@media only screen and (min-width: 992px) {
+		background-image: $imgSrcBig;
+	}
+}
+
+@mixin responsive-grid(
+	$firstCol,
+	$gridGap,
+	$gridAreas1,
+	$vw,
+	$secondCol,
+	$gridAreas2
+) {
+	display: grid;
+	grid-template-columns: $firstCol;
+	grid-gap: $gridGap;
+	grid-template-areas: $gridAreas1;
+
+	@media only screen and ($vw) {
+		grid-template-columns: $secondCol;
+		grid-template-areas: $gridAreas2;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: rgb(44, 44, 44);
+}
+
+.container {
+	max-width: 980px;
+	width: 75%;
+	margin: 0 auto 30px;
+}
+
+// Navbar
+
+nav {
+	width: 100%;
+	background: $melon;
+	ul {
+		width: 80%;
+		margin: 0 auto;
+		padding: 0;
+		text-align: center;
+		li {
+			list-style: none;
+			display: inline-block;
+			// padding: 20px;
+			font-size: 1.2em;
+		}
+		a {
+			padding: 20px;
+			display: inline-block;
+			&:hover {
+				background: $light-coral;
+			}
+		}
+	}
+}
+
+.toggle {
+	width: 100%;
+	padding: 10px 20px;
+	text-align: right;
+	box-sizing: border-box;
+	font-size: 30px;
+	display: none;
+}
+
+/* Hamburger navigation, with the help of Online Tutorials: https://www.youtube.com/watch?v=XZsuI5wyRzs */
+@media (max-width: 768px) {
+	.toggle {
+		display: block;
+	}
+
+	nav ul {
+		width: 100%;
+		display: none;
+		li {
+			display: block;
+			text-align: center;
+			background-color: $melon;
+			a {
+				width: 100%;
+			}
+		}
+	}
+
+	.active {
+		display: block;
+	}
+}
+
+/* Top Header */
+
+#main-header {
+	height: 80vh;
+	background: url("../../images/header-background.jpg") no-repeat center / cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		font-size: 8vmax;
+		letter-spacing: 10px;
+		font-family: "Pacifico", cursive;
+	}
+
+	h2 {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-weight: normal;
+	}
+}
+
+/* About */
+
+#about {
+	background-color: rgb(245, 245, 245);
+	padding: 2rem 1rem;
+	border-bottom: 1px solid rgb(218, 218, 218);
+
+	img {
+		margin: 3em auto;
+		height: auto;
+		width: 300px;
+		box-shadow: 15px 15px $melon;
+
+		@media (max-width: 1000px) {
+			box-shadow: 10px -10px $melon;
+		}
+	}
+
+	p {
+		margin-left: 80px;
+		line-height: 1.8;
+
+		@media (max-width: 1000px) {
+			margin-left: 0;
+		}
+	}
+}
+
+/* Portfolio */
+
+.grid-wrapper {
+	@extend .container;
+}
+
+#portfolio {
+	padding-bottom: 4rem;
+
+	h4 {
+		margin-bottom: 2rem;
+		font-weight: normal;
+	}
+
+	.portfolio-header {
+		@include parallax-header(
+			url("../../images/portfolio 1100w.jpg"),
+			url("../../images/portfolio max.jpg")
+		);
+	}
+
+	/*! Card section with the help of Evan Kapantais*/
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+		gap: 20px;
+		justify-content: center;
+		max-width: 1000px;
+		margin: 0 auto;
+
+		.project-card {
+			position: relative;
+			cursor: pointer;
+			transition: 200ms ease-in-out;
+		}
+
+		.overlay {
+			background-color: rgba(0, 0, 0, 0.5);
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 300ms 100ms ease-in-out;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 2rem;
+
+			h5 {
+				margin-top: 20px;
+				transition: 300ms 100ms ease-in-out;
+			}
+			p {
+				font-size: 1rem;
+				text-align: center;
+			}
+		}
+
+		// Increase image size on hover
+		.project-card:hover {
+			transform: scale(1.02);
+		}
+
+		// Add animation to header
+		.project-card:hover h5 {
+			margin-top: 0;
+		}
+
+		// Add opacity layer on hover
+		.project-card:hover > .overlay {
+			opacity: 1;
+		}
+	}
+}
+
+/***** Testimonials Section *****/
+
+#testimonials {
+	background-color: $uranian-blue;
+	padding-bottom: 20px;
+}
+
+.testimonial-header {
+	@include parallax-header(
+		url("../../images/testimonials\ 1100w.jpg"),
+		url("../../images/testimonials max.jpg")
+	);
+}
+
+.testimonial-carousel {
+	max-width: 980px;
+	position: relative;
+	margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+	text-align: center;
+}
+
+.testimonial-img {
+	border-radius: 100%;
+	height: auto;
+	width: 25%;
+	display: block;
+	margin: 20px auto auto;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: $dim-gray;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+	color: $dim-gray;
+	font-size: 15px;
+	padding: 3% 15%;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+	// text-shadow: 0.5px 0.5px 1px #333;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.carousel-dots .active,
+.dot:hover {
+	background-color: $dim-gray;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*! Carousel ends
+
+/***** Contact Section *****/
+
+.contact-header {
+	@include parallax-header(
+		url("../../images/contact\ 1100w.jpg"),
+		url("../../images/contact\ max.jpg")
+	);
+}
+
+.contact-sub-header {
+	@extend .container;
+	text-align: center;
+}
+
+.contact-info {
+	@extend .container;
+	@include responsive-grid(
+		1fr,
+		0,
+		"contactImage" "contactText" "contactText" "contactText",
+		"min-width: 692px",
+		1fr 3fr,
+		"contactImage contactText" "contactImage contactText"
+			"contactImage contactText"
+	);
+	grid-template-rows: auto;
+
+	img {
+		grid-area: contactImage;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.contact-text {
+		grid-area: contactText;
+		line-height: 2;
+		padding-left: 30px;
+		i {
+			color: $dim-gray;
+			padding-right: 5px;
+		}
+		form {
+			margin-top: 30px;
+			fieldset {
+				border: none;
+				margin: 0;
+				padding: 0;
+			}
+			input,
+			textarea {
+				background-color: #eee;
+				border: 1px solid transparent;
+				// border-radius: 2px;
+				outline: none;
+				margin: 5px 0;
+				padding: 5px;
+				transition: all 0.4s;
+				width: 100%;
+				&:focus {
+					background-color: #fff;
+					border: 1px solid $light-coral;
+				}
+			}
+			button {
+				background-color: $light-coral;
+				color: #fff;
+				cursor: pointer;
+				border: none;
+				border-radius: 2px;
+				width: 100px;
+				&:hover {
+					background-color: $melon;
+				}
+				i {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+/***** Resume page *****/
+.experience-section {
+	div ul {
+		padding-left: 20px;
+	}
+	li {
+		list-style: disc outside;
+	}
+}
+.experience-section .container {
+	@include responsive-grid(
+		1fr,
+		50px,
+		"header" "skills" "work" "education",
+		"min-width: 768px",
+		1fr 3fr,
+		"header header" "skills work" "skills education"
+	);
+}
+
+.resume-header {
+	@include parallax-header(
+		url("../../images/resume 1100w.jpg"),
+		url("../../images/resume max.jpg")
+	);
+	grid-area: header;
+}
+
+#work {
+	grid-area: work;
+}
+
+#education {
+	grid-area: education;
+}
+
+#skills {
+	grid-area: skills;
+	line-height: 2;
+	div {
+		div {
+			background-color: $light-melon;
+			div {
+				background-color: $light-coral;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+		}
+	}
+}
+
+/* Back on Top button, modified from: W3 School's How TO - Scroll Back To Top Button tutorial: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+#topBtn {
+	display: none;
+	content: "";
+	position: fixed;
+	bottom: 100px;
+	right: 80px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0;
+	border-radius: 100%;
+	height: 0;
+	width: 0;
+}
+
+.cicle-fa {
+	border-radius: 100%;
+	bottom: 50px;
+	right: 30px;
+}
+
+/***** Footer *****/
+
+footer {
+	background-color: $old-lavender;
+	color: #fff;
+	margin-top: 70px;
+	padding: 50px 0 30px;
+	text-align: center;
+
+	.some a {
+		display: inline-block;
+		margin: 10px 5px;
+		transition: 200ms;
+	}
+
+	.some a:hover {
+		transform: scale(1.1);
+	}
+
+	p {
+		font-size: 0.8rem;
+	}
+}
