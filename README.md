@@ -1,7 +1,18 @@
-# Portfolio Template
+# My Portfolio
 
-This is a template for a webpage that showcases the portfolio and resume of the person in question.
+This is my portfolio pages. It has been strongly inspired by a [team project](https://github.com/chingu-voyages/v11-toucans-team-12) done by Evan Kapantais and myself for Voyage #12 in the Chingu community.
+You can read more about Chingu Voyages [on Chingu homepage](https://chingu.io/).
 
-## Template to follow
+## Site Contents
 
-This template is inspired by the W3Schools Parallax template: https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm
+- [About Me](https://github.com/chingu-voyages/v11-toucans-team-12)
+- [My Work](https://ullataponen.github.io/index.html#portfolio)
+- [Contact Me](https://ullataponen.github.io/index.html#contact)
+- [My Resume](https://ullataponen.github.io/resume.html)
+
+## Used technologies
+
+- HTML
+- Sass
+- JavaScript
+- JQuery
