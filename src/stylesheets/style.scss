@@ -15,7 +15,7 @@ $dim-gray: #717171;
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
-	text-shadow: 2px 2px 2px #333, -2px -2px 2px #333;
+	text-shadow: #333 1px 0 10px;
 	height: 300px;
 	display: flex;
 	align-items: center;
@@ -61,11 +61,35 @@ body {
 	margin: 0 auto 30px;
 }
 
+.to-appear {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: 0.8s all ease-in;
+}
+
+.appear {
+	opacity: 1;
+	transform: translateY(0px);
+}
+
+.to-appear-left {
+	opacity: 0;
+	transform: translateX(50px);
+	transition: 0.8s all ease-in;
+}
+
+.appear-left {
+	opacity: 1;
+	transform: translateX(0px);
+}
+
 // Navbar
 
 nav {
+	position: fixed;
+	z-index: 3;
 	width: 100%;
-	background: $melon;
+	// background: $melon;
 	ul {
 		width: 80%;
 		margin: 0 auto;
@@ -123,7 +147,8 @@ nav {
 
 #main-header {
 	height: 80vh;
-	background: url("../../images/header-background_2000w.jpg") no-repeat center / cover;
+	background: url("../../images/header-background_2000w.jpg") no-repeat center /
+		cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -147,6 +172,17 @@ nav {
 	padding: 2rem 1rem;
 	border-bottom: 1px solid rgb(218, 218, 218);
 
+	.about {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		// add appear on scroll
+		// opacity: 0;
+		// transform: translateY(20px);
+		// transition: 0.5s all ease-in-out;
+	}
+
 	img {
 		margin: 3em auto;
 		height: auto;
@@ -165,6 +201,12 @@ nav {
 		@media (max-width: 1000px) {
 			margin-left: 0;
 		}
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	#about .container {
+		flex-direction: row;
 	}
 }
 
