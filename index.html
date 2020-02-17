@@ -16,7 +16,7 @@
   <!-- Scroll to top button -->
   <button onclick="topFunction()" id="topBtn" title="Go to top"><span class="fa-stack fa-2x"><i class="fas fa-circle fa-stack-2x circle-fa"></i><i class="fas fa-angle-up fa-stack-1x fa-inverse"></i></span></button>
   <!-- Top Header -->
-  <nav>
+  <nav id="nav">
       <div class="toggle"><i class="fas fa-bars menu"></i></div>
       <ul>
         <li><a href="#about">About</a></li>
@@ -38,7 +38,7 @@
   <main>
     <section id="about">
       <h3>About Me</h3>
-      <div class="container">
+      <div class="container about to-appear">
         <img src="images/Ulla.jpg" alt="Image of Ulla Taponen">
         <p>I'm an aspiring programming professional with an academic grade average of 4.6 (out of 5), 
           looking to utilize and further develop my skills in front-end development. I have a strong passion for usability and functionality. 
@@ -56,7 +56,7 @@
       <div class="grid-wrapper">
         <div class="projects-grid">
           <a href="https://github.com/ullataponen/personaltrainer" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
                 <div class="overlay">
                   <h5>Personal Trainer</h5>
                   <p>React personal trainer app with customer, training data utilizing REST API</p>
@@ -65,7 +65,7 @@
               </div>
           </a>
            <a href="https://github.com/ullataponen/carshop" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
                 <div class="overlay">
                   <h5>Car Shop</h5>
                   <p>React car shop app utilizing REST API</p>
@@ -74,7 +74,7 @@
               </div>
           </a>
           <a href="https://ullataponen.github.io/coffee-shop-front/" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
                 <div class="overlay">
                   <h5>Linden Coffee Shop</h5>
                   <p>A static website for an imaginary coffee shop. HTML, CSS, JS</p>
@@ -83,7 +83,7 @@
               </div>
           </a>
           <a href="https://ullataponen.github.io/TinCat-Start/" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
                 <div class="overlay">
                   <h5>Tincat</h5>
                   <p>A Bootstrap landing page</p>
@@ -92,7 +92,7 @@
               </div>
           </a>
           <a href="https://ullataponen.github.io/Voyage11-prework/" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
                 <div class="overlay">
                   <h5>Chingu Challenge</h5>
                   <p>Pure HTML, CSS, JS template</p>
@@ -101,7 +101,7 @@
               </div>
           </a>
           <a href="https://ullataponen.github.io/MySite/" target="_blank">
-            <div class="project-card">
+            <div class="project-card to-appear">
               <div class="overlay">
                 <h5>My Site</h5>
                 <p>A simple HTML and CSS site</p>
@@ -109,15 +109,6 @@
               <img src="images/my-site.jpg" alt="Image of project site">
             </div>
            </a>
-           <!-- <a href="https://ullataponen.github.io/Dicee_Challenge/" target="_blank">
-            <div class="project-card">  
-              <div class="overlay">
-                <h5>Dicee Challenge</h5>
-                <p>A simple JavaScript game</p>
-              </div>
-              <img src="images/dicee.jpg" alt="Image of project site">    
-            </div>
-          </a> -->
         </div>
       </div>
     </section>
@@ -170,14 +161,14 @@
         <h3>Get In Touch</h3>
         <p><em>I'd love to hear from you!</em></p>
       </div>
-      <div class="contact-info">
+      <div class="contact-info to-appear">
         <img src="images/mailbox 500w.jpg" alt="Image of mailboxes">
         <div class="contact-text">
           <p><i class="fas fa-map-marker-alt"></i>Location: Frankfurt, Germany</p>
           <!-- <p><i class="fas fa-phone-alt"></i>Phone: 123 456 789</p> -->
           <!-- <p><i class="fas fa-envelope"></i>Email:</p> -->
-          <!-- N.B. Form is set up with formspree, requires a working email  and a test contact message to activate. See https://github.com/formspree/formspree for mor details -->
-          <form id="contactform" action="https://formspree.io/ulla.taponen@gmail.com" method="post">
+          <!-- N.B. Form is set up with formspree. See https://github.com/formspree/formspree for more details -->
+           <form id="contactform" method="POST"> 
             <fieldset>
               <legend>Leave me a message!</legend>
               <label for="name">Your name:</label><br>
@@ -209,6 +200,13 @@
       <p>&copy; 2019 Ulla Taponen</p>
     </div>
   </footer>
+  <script>
+  // Contact form security to avoid spambots, from: https://webdesign.tutsplus.com/tutorials/quick-tip-add-a-formspree-form-to-your-static-sites--cms-23870
+    var contactform = document.getElementById("contactform");
+    contactform.setAttribute(
+      "action",
+      "//formspree.io/" + "ulla.taponen" + "@" + "gmail" + "." + "com"
+    );</script>
   <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
